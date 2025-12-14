@@ -82,6 +82,75 @@
             font-weight: 600;
         }
         .subscription-table tr:hover { background: #F5F5F5; }
+
+        /* ===== FIX 4.1 Available Plans (Mobile cards) ===== */
+        .plans {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+            margin: 18px 0 10px;
+        }
+        .plan-card {
+            border: 1px solid #E8F5E9;
+            border-radius: 14px;
+            padding: 14px;
+            background: #fff;
+        }
+        .plan-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+        .plan-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1B5E20;
+        }
+        .plan-badge {
+            font-size: 12px;
+            color: #2E7D32;
+            background: #E8F5E9;
+            padding: 4px 10px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+        .plan-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+        .plan-label {
+            font-size: 12px;
+            color: #777;
+            min-width: 80px;
+        }
+        .plan-value {
+            font-size: 13px;
+            color: #555;
+            flex: 1;
+            text-align: right;
+        }
+        .plan-note {
+            margin-top: 10px;
+            background: #F7FBF8;
+            border: 1px solid #E8F5E9;
+            padding: 10px 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            color: #555;
+        }
+        @media (max-width: 560px) {
+            .subscription-table { display: none; } /* hide table on iPhone */
+        }
+        @media (min-width: 561px) {
+            .plans { display: none; } /* hide cards on desktop */
+        }
+        /* ===== END FIX ===== */
+
         .contact-box {
             background: #E8F5E9;
             padding: 20px;
@@ -155,6 +224,46 @@
             Prices may vary by country/region and may change over time. The price shown in the App Store at the time of purchase will apply.
         </p>
 
+        <!-- Mobile cards (iPhone) -->
+        <div class="plans">
+            <div class="plan-card">
+                <div class="plan-top">
+                    <div class="plan-name">Weekly</div>
+                    <div class="plan-badge">Subscription</div>
+                </div>
+                <div class="plan-row">
+                    <div class="plan-label">Billing</div>
+                    <div class="plan-value">Renews weekly</div>
+                </div>
+                <div class="plan-note">May include a free trial (if shown in the App Store).</div>
+            </div>
+
+            <div class="plan-card">
+                <div class="plan-top">
+                    <div class="plan-name">Yearly</div>
+                    <div class="plan-badge">Best Value</div>
+                </div>
+                <div class="plan-row">
+                    <div class="plan-label">Billing</div>
+                    <div class="plan-value">Renews annually</div>
+                </div>
+                <div class="plan-note">May include discounted pricing (if shown in the App Store).</div>
+            </div>
+
+            <div class="plan-card">
+                <div class="plan-top">
+                    <div class="plan-name">Lifetime</div>
+                    <div class="plan-badge">One-time</div>
+                </div>
+                <div class="plan-row">
+                    <div class="plan-label">Type</div>
+                    <div class="plan-value">Non-consumable purchase</div>
+                </div>
+                <div class="plan-note">Unlocks premium features permanently for the Apple ID used to purchase.</div>
+            </div>
+        </div>
+
+        <!-- Desktop table (kept) -->
         <table class="subscription-table">
             <tr>
                 <th>Plan</th>
